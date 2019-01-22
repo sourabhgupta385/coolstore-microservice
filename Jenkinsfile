@@ -9,7 +9,7 @@ pipeline{
                             def templateSelector = openshift.selector( "template", "coolstore")
                             def templateExists = templateSelector.exists()
                             if (!templateExists) {
-                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml').object()
+                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml')
                             } else {
                                 sh 'echo Template already exists'
                             }
@@ -18,7 +18,7 @@ pipeline{
                             def templateSelector = openshift.selector( "template", "coolstore")
                             def templateExists = templateSelector.exists()
                             if (!templateExists) {
-                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml').object()
+                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml')
                             } else {
                                 sh 'echo Template already exists'
                             }
@@ -27,7 +27,7 @@ pipeline{
                             def templateSelector = openshift.selector( "template", "coolstore")
                             def templateExists = templateSelector.exists()
                             if (!templateExists) {
-                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml').object()
+                                template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml')
                             } else {
                                 sh 'echo Template already exists'
                             }
