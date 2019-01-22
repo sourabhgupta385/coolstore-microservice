@@ -5,7 +5,7 @@ pipeline{
             steps{
                 script{
                     openshift.withCluster() {
-                        openshift.withProject('coolstore-dev') {
+                        openshift.withProject('coolstore-dev-sourabh') {
                             def bcSelector = openshift.selector( "bc", "web-ui")
                             def bcExists = bcSelector.exists()
                             if (!bcExists) {
