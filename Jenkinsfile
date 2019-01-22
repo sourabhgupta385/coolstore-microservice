@@ -10,7 +10,7 @@ pipeline{
                             def templateExists = templateSelector.exists()
                             if (!templateExists) {
                                 template = openshift.create('https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml')
-                                openshift.process(template)
+                                openshift.process("openshift//coolstore")
                             } else {
                                 sh 'echo Template already exists'
                             }
