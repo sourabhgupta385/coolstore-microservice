@@ -12,8 +12,8 @@ pipeline{
                                 openshift.newApp("https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml")
                             } else {
                                 sh 'echo BC already exists'
-                                openshiftBuild(buildConfig: 'web-ui',showBuildLogs: 'true', namespace: 'coolstore-dev')
-                                //sh 'oc start-build web-ui --from-dir . --follow'
+                                //openshiftBuild(buildConfig: 'web-ui',showBuildLogs: 'true', namespace: 'coolstore-dev')
+                                sh 'oc start-build web-ui --from-dir . --follow -n coolstore-dev'
                             }
                         }
                     }
