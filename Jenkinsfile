@@ -16,7 +16,7 @@ node{
                             } else {
                                 sh 'echo BC already exists'
                                 openshift.startBuild("web-ui")
-                                sh 'npm --prefix ./coolstore-ui install ./coolstore-ui' 
+                                sh 'npm --prefix ../workspace@script/coolstore-ui install' 
                             }
                         }
                     }
