@@ -57,6 +57,6 @@ node{
    }
     
     stage("Tagging Image for Production"){
-        openshiftTag(srcStream: 'web-ui', srcTag: 'latest', destStream: 'web-ui', destTag: 'prod')
+        openshiftTag(srcStream: 'coolstore-dev-sourabh/web-ui', srcTag: 'latest', destStream: 'coolstore-dev-sourabh/web-ui', destTag: 'prod')
    }
 }
