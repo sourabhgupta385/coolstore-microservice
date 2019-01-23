@@ -5,7 +5,7 @@ node{
     //agent none
     //stages{
         stage('First Time Deployment'){
-            steps{
+            //steps{
                 script{
                     openshift.withCluster() {
                         openshift.withProject('coolstore-dev-sourabh') {
@@ -21,7 +21,7 @@ node{
                         }
                     }
                 }
-            }
+            //}
         }
         
    // }
