@@ -50,9 +50,9 @@ node{
    //}
     
     stage("Functional Testing"){
-        sh 'cd ../workspace@script/coolstore-ui'
+        sh 'cd ../workspace@script/coolstore-ui && python functionalTest.py'
         sh 'pwd'
-        sh 'python functionalTest.py'   
+        //sh 'python functionalTest.py'   
    }
 
    //stage("Dev - Deploying Application"){
