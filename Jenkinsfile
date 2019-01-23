@@ -1,8 +1,7 @@
 node{
     def NODEJS_HOME = tool "NODE_PATH"
     env.PATH="${env.PATH}:${NODEJS_HOME}/bin"
-    sh 'npm --version'
-        
+   
     stage('First Time Deployment'){
         script{
             openshift.withCluster() {
@@ -12,7 +11,7 @@ node{
                     if (!bcExists) {
                         openshift.newApp("https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml")
                     } else {
-                        sh 'echo BC already exists'  
+                        sh 'echo build config already exists'  
                     }
                 }
             }
@@ -30,36 +29,34 @@ node{
     }
     
     stage("Unit Test"){
-        sh 'echo Unit Testing'
         sh 'npm --prefix ../workspace@script/coolstore-ui run test'
     }
    
     stage("Code Coverage"){
-        sh 'echo Code Coverage'
         sh 'npm --prefix ../workspace@script/coolstore-ui run coverage'
    }
 
-   //stage("Dev - Building Application"){
-   //     script{
-   //         openshift.withCluster() {
-   //             openshift.withProject('coolstore-dev-sourabh'){
-   //                 openshift.startBuild("web-ui")   
-   //             }
-   //         }
-   //     }
-   //}
+    stage("Dev - Building Application"){
+        script{
+            openshift.withCluster() {
+                openshift.withProject('coolstore-dev-sourabh'){
+                    openshift.startBuild("web-ui")   
+                }
+            }
+        }
+    }
     
     stage("Functional Testing"){
         //sh 'cd ../workspace@script/coolstore-ui && python functionalTest.py'
-        //sh 'pwd'
-        //sh 'python functionalTest.py'   
+        sh 'echo Function Testing' 
    }
    
    stage("Load Testing"){
-         sh 'cd ../workspace@script/coolstore-ui && artillery run perfTest.yml'
-         //sh 'artillery run perfTest.yml --output load-test.json && artillery report load-test.json --output load-test-result.html'
+        sh 'cd ../workspace@script/coolstore-ui && artillery run perfTest.yml'
+        
    }
-   //stage("Dev - Deploying Application"){
-   //    openshiftDeploy(deploymentConfig: 'web-ui')
-   //}
+    
+    stage("Tagging Image for Production"){
+        openshiftTag(srcStream: 'web-ui', srcTag: 'latest', destStream: 'web-ui', destTag: 'prod')
+   }
 }
