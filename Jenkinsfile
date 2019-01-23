@@ -1,4 +1,4 @@
-pipeline{
+node{
     def NODEJS_HOME = tool "NODE_PATH"
     env.PATH="${env.PATH}:${NODEJS_HOME}/bin"
     sh 'npm --version'
