@@ -20,12 +20,22 @@ node{
             }
         }
     }
+    
     stage('Install Dependecies'){
         sh 'npm --prefix ../workspace@script/coolstore-ui install'
     }
+    
     stage('Code Quality'){
         sh 'npm --prefix ../workspace@script/coolstore-ui run lint'
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'quality.html', reportName: 'Quality Report', reportTitles: ''])
         sh 'npm --prefix ../workspace@script/coolstore-ui run lint-console'
     }
+    
+    stage("Unit Test"){
+        sh 'npm --prefix ../workspace@script/coolstore-ui run test'
+    }
+   
+    stage("Code Coverage"){
+        sh 'npm --prefix ../workspace@script/coolstore-ui run coverage'
+   }
 }
