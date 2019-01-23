@@ -32,8 +32,8 @@ node{
     }
     
     stage("Unit Test"){
-        //sh 'npm --prefix ../workspace@script/coolstore-ui run test'
         sh 'echo Unit Testing'
+        sh 'npm --prefix ../workspace@script/coolstore-ui run test'
     }
    
     stage("Code Coverage"){
@@ -41,15 +41,15 @@ node{
         sh 'echo Code Coverage'
    }
 
-   stage("Dev - Building Application"){
-        script{
-            openshift.withCluster() {
-                openshift.withProject('coolstore-dev-sourabh'){
-                    openshift.startBuild("web-ui")   
-                }
-            }
-        }
-   }
+   //stage("Dev - Building Application"){
+   //     script{
+   //         openshift.withCluster() {
+   //             openshift.withProject('coolstore-dev-sourabh'){
+   //                 openshift.startBuild("web-ui")   
+   //             }
+   //         }
+   //     }
+   //}
 
    //stage("Dev - Deploying Application"){
    //    openshiftDeploy(deploymentConfig: 'web-ui')
