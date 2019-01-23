@@ -42,10 +42,16 @@ node{
    }
 
    stage("Dev - Building Application"){
-        openshiftBuild(buildConfig: 'web-ui',showBuildLogs: 'true')
+        script{
+            openshift.withCluster() {
+                openshift.withProject('coolstore-dev-sourabh'){
+                    openshift.startBuild("web-ui")   
+                }
+            }
+        }
    }
 
-   stage("Dev - Deploying Application"){
-       openshiftDeploy(deploymentConfig: 'web-ui')
-   }
+   //stage("Dev - Deploying Application"){
+   //    openshiftDeploy(deploymentConfig: 'web-ui')
+   //}
 }
