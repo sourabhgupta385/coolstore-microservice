@@ -13,8 +13,7 @@ pipeline{
                             } else {
                                 sh 'echo BC already exists'
                                 openshift.startBuild("web-ui")
-                                sh 'cd coolstore-ui'
-                                sh 'ls'
+                                sh 'npm --prefix ./coolstore-ui install ./coolstore-ui' 
                             }
                         }
                     }
