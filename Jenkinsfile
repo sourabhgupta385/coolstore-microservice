@@ -56,7 +56,7 @@ node{
    }
    
    stage("Load Testing"){
-         sh 'artillery run perfTest.yml'
+         sh 'cd ../workspace@script/coolstore-ui && artillery run perfTest.yml'
          //sh 'artillery run perfTest.yml --output load-test.json && artillery report load-test.json --output load-test-result.html'
    }
    //stage("Dev - Deploying Application"){
