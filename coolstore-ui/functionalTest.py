@@ -17,12 +17,9 @@ def testResult(count,description,expected_value,actual_value):
 
 # Test case 1 - Testing version URL
 test_count = test_count+1
-print 'Hello 1'
 description = "/cart url should return 200 status code"
-print 'Hello 2'
 conn = httplib.HTTPConnection(HOST_NAME,PORT)
-print 'Hello 3'
-conn.request("GET","/cart")
+conn.request("GET","/#/cart")
 print 'Hello 4'
 response = conn.getresponse()
 print 'Hello 5'
