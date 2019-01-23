@@ -3,7 +3,7 @@ node{
     env.PATH="${env.PATH}:${NODEJS_HOME}/bin"
     sh 'npm --version'
     //agent none
-    stages{
+    //stages{
         stage('First Time Deployment'){
             steps{
                 script{
@@ -24,5 +24,5 @@ node{
             }
         }
         
-    }
+   // }
 }
