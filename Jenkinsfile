@@ -51,6 +51,7 @@ node{
     
     stage("Functional Testing"){
         sh 'cd ../workspace@script/coolstore-ui'
+        sh 'pwd'
         sh 'python functionalTest.py'   
    }
 
