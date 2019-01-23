@@ -12,9 +12,7 @@ node{
                     if (!bcExists) {
                         openshift.newApp("https://raw.githubusercontent.com/sourabhgupta385/coolstore-microservice/stable-ocp-3.9/openshift/coolstore-template.yaml")
                     } else {
-                        sh 'echo BC already exists'
-                        //openshift.startBuild("web-ui")
-                         
+                        sh 'echo BC already exists'  
                     }
                 }
             }
@@ -50,6 +48,10 @@ node{
    //         }
    //     }
    //}
+    
+    stage("Functional Testing"){
+        sh 'python functionalTest.py'   
+   }
 
    //stage("Dev - Deploying Application"){
    //    openshiftDeploy(deploymentConfig: 'web-ui')
