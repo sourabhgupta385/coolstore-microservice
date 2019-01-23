@@ -26,6 +26,6 @@ node{
     stage('Code Quality'){
         sh 'npm --prefix ../workspace@script/coolstore-ui run lint'
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'quality.html', reportName: 'Quality Report', reportTitles: ''])
-        sh 'npm run lint-console'
+        sh 'npm --prefix ../workspace@script/coolstore-ui run lint-console'
     }
 }
