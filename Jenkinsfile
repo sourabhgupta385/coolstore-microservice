@@ -37,8 +37,8 @@ node{
     }
    
     stage("Code Coverage"){
-        //sh 'npm --prefix ../workspace@script/coolstore-ui run coverage'
         sh 'echo Code Coverage'
+        sh 'npm --prefix ../workspace@script/coolstore-ui run coverage'
    }
 
    //stage("Dev - Building Application"){
