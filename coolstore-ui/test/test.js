@@ -21,10 +21,4 @@ describe('Object Test', function(){
     // car.should.equal(car1);
     car.should.deep.equal(car1);
   });
-
-  it('handling null', function(){
-    var car = null;
-    //car.should.not.exist;
-    should.exist(car);
-  });
 });
