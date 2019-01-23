@@ -19,7 +19,7 @@ def testResult(count,description,expected_value,actual_value):
 test_count = test_count+1
 description = "/cart url should return 200 status code"
 conn = httplib.HTTPConnection(HOST_NAME,PORT)
-conn.request("GET","/#/cart")
+conn.request("GET","web-ui")
 print 'Hello 4'
 response = conn.getresponse()
 print 'Hello 5'
