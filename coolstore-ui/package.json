@@ -33,7 +33,7 @@
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower --config.registry.search=${BOWER_MIRROR} install",
-    "lint": "eslint -o quality.html -f html server.js views/partials/*",
+    "lint": "eslint -o quality.html -f html server.js",
     "lint-console": "eslint server.js"
   }
 }
