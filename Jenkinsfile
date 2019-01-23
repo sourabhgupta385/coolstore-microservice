@@ -34,7 +34,7 @@ node{
    
     stage("Code Coverage"){
         sh 'npm --prefix ../workspace@script/coolstore-ui run coverage'
-   }
+    }
 
     stage("Dev - Building Application"){
         script{
@@ -49,14 +49,14 @@ node{
     stage("Functional Testing"){
         //sh 'cd ../workspace@script/coolstore-ui && python functionalTest.py'
         sh 'echo Function Testing' 
-   }
+    }
    
-   stage("Load Testing"){
+    stage("Load Testing"){
         sh 'cd ../workspace@script/coolstore-ui && artillery run perfTest.yml'
         
-   }
+    }
     
     stage("Tagging Image for Production"){
         openshiftTag(namespace: 'coolstore-dev-sourabh', srcStream: 'web-ui', srcTag: 'latest', destStream: 'web-ui', destTag: 'prod')
-   }
+    }
 }
