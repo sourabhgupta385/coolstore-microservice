@@ -20,9 +20,7 @@ test_count = test_count+1
 description = "/cart url should return 200 status code"
 conn = httplib.HTTPConnection(HOST_NAME,PORT)
 conn.request("GET","/#/cart")
-print 'Hello 4'
 response = conn.getresponse()
-print 'Hello 5'
 print response.status
 result_content = testResult(test_count,description,200,response.status)
 table_content = table_content + result_content
