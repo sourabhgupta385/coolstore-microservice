@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import httplib, urllib, json
-HOST_NAME = "web-ui"
+HOST_NAME = "web-ui.coolstore-dev-sourabh.svc"
 PORT = 8080
 test_count = 0
 table_content = ""
@@ -19,7 +19,7 @@ def testResult(count,description,expected_value,actual_value):
 test_count = test_count+1
 description = "/cart url should return 200 status code"
 conn = httplib.HTTPConnection(HOST_NAME,PORT)
-conn.request("GET","web-ui")
+conn.request("GET","/#/cart")
 print 'Hello 4'
 response = conn.getresponse()
 print 'Hello 5'
