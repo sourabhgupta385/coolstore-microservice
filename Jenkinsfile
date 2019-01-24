@@ -47,7 +47,7 @@ node{
     }
     
     stage("Functional Testing"){
-        //sh 'cd ../workspace@script/coolstore-ui && python functionalTest.py'
+        sh 'cd ../workspace@script/coolstore-ui && python functionalTest.py'
         sh 'echo Function Testing' 
     }
    
